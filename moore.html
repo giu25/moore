@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Display</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>|_3GG3 |)| /\/\00R3</h1>
+    <form id="valida">
+        <label for="anno">ANNO :</label><br>
+        <input type="text" name="anno" id="anno">
+        <input type="button" onclick="convalida()" value="Invia">    
+    </form>
+    <p>L'anno deve essere compreso tra il 1997 e il 2020. Questo dato il limite fisico degli attuali componenti di microelettronica.</p>
+    <div id="maschera">
+		<div id="final"></div>
+	</div>
+    <div id="display">
+	  <div id="stringa0">
+		<pre>
+ _
+| |
+|_|
+
+		</pre>
+	  </div>
+	  <div id="stringa1">
+		<pre>
+
+  |
+  |
+
+		</pre>
+	  </div>
+	  <div id="stringa2">
+		<pre>
+ _
+ _|
+|_
+
+		</pre>
+	  </div>
+	  <div id="stringa3">
+		<pre>
+ _
+ _|
+ _|
+
+		</pre>
+	  </div>
+	  <div id="stringa4">
+		<pre>
+
+|_|
+  |
+
+		</pre>
+	  </div>
+	  <div id="stringa5">
+		<pre>
+ _
+|_
+ _|
+
+		</pre>
+	  </div>
+	  <div id="stringa6">
+		<pre>
+ _
+|_
+|_|
+
+		</pre>
+	  </div>
+	  <div id="stringa7">
+		<pre>
+ _
+  |
+  |
+
+		</pre>
+	  </div>
+	  <div id="stringa8">
+		<pre>
+ _
+|_|
+|_|
+
+		</pre>
+	  </div>
+	  <div id="stringa9">
+		<pre>
+ _
+|_|
+ _|
+
+		</pre>
+	  </div>
+	</div>
+	<script type="text/javascript">
+	
+	var numero_transistor = 0;
+
+		function convalida(){
+			document.getElementById('final').innerHTML = "";
+			var anno = document.getElementById('anno').value;
+			if(anno < 1997 || anno > 2020 || isNaN(anno)){
+				alert("L'anno deve essere un numero compreso tra il 1997 e il 2020");
+			}
+			else{
+				numero_transistor = calcola(anno);
+				if(numero_transistor > 0){display(numero_transistor);}
+			}
+		}
+
+	  function calcola(a){
+	      var trascorso = a - 1997;
+	      var moore = [0,1,1,2,3,3,4,5,5,6,7,7,8,9,9,10,11,11,12,13,13,14,15,15];
+	      var indice_moore = moore[trascorso];
+	      var transistor = 7500000*(Math.pow(2,indice_moore));
+	      return transistor;
+	    }
+
+		function display(transistor){
+			var transistor_string =  transistor.toString();
+			var transistor_array = transistor_string.split("");
+			var arrayFinale = transistor_array.map(function(e){
+				return parseInt(e);
+			})
+			for(i=0; i < arrayFinale.length; i++){
+				var itm = document.getElementById("stringa"+arrayFinale[i]);
+				var cln = itm.cloneNode(true);
+				document.getElementById("final").appendChild(cln);
+			}
+		}		
+	</script>
+</body>
+</html>

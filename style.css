@@ -1,0 +1,58 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	background-color: black;
+}
+
+h1 {
+  	color: #00ff00;
+  	text-align: center;
+  	font-size: 50px; 
+}
+
+p{
+	color: #00ff00;
+	text-align: center;
+	font-style: italic;
+}
+
+#valida{
+	text-align: center;
+}
+
+#display{
+    display:none;
+}
+
+#final{
+	margin-left: 8%;
+}
+
+#maschera{
+	margin: 5%;
+  	height: 80px;
+  	background: linear-gradient(0deg, #111, #222);
+  	box-shadow: 
+    0px 0px 2px 0px #aaa inset,
+    0px -1px 2px 0px #aaa inset,
+    2px -5px 5px 0px #111 inset,
+    0px -5px 5px 0px #111 inset,
+    2px 5px 5px 0px #111;
+  	border-radius: 5px;
+}
+
+pre{
+	display: inline-block;
+	float: left;
+	color: #00ff00;
+	text-shadow: 0px 0px 30px rgba(0, 255, 0, 1);
+	font-size: 20px;
+	font-weight: bold;
+	margin: 0;
+	width: 100px;
+    height: 100px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
